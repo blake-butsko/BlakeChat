@@ -25,38 +25,39 @@ const firestore = firebase.firestore();
 function App() {
 
   // hook to check if user is signed in
-  const [user] = useAuthState(auth);
+  // const [user] = useAuthState(auth);
 
   return (
     <div className="App">
       <header>
-        <h1>⚛️🔥💬</h1>
+        <h1>Blake Chat💬</h1>
         <SignOut />
       </header>
 
       <section>
-        {user ? <ChatRoom /> : <SignIn />}
+        <ChatRoom />
+        {/* {user ? <ChatRoom /> : <SignIn />} */}
       </section>
 
     </div>
   );
 }
 
-function SignIn(){
-  const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider(); //google sign in 
-    auth.signInWithPopup(provider);
-  }
+// function SignIn(){
+//   const signInWithGoogle = () => {
+//     const provider = new firebase.auth.GoogleAuthProvider(); //google sign in 
+//     auth.signInWithPopup(provider);
+//   }
 
-  return (
-    <>
-      <div>
-        <h1>Blake's Chat</h1>
-        <button onClick={signInWithGoogle}>Sign in with Google</button>
-      </div>
-    </>
-  )
-}
+//   return (
+//     <>
+//       <div>
+//         <h1>Blake's Chat</h1>
+//         <button onClick={signInWithGoogle}>Sign in with Google</button>
+//       </div>
+//     </>
+//   )
+// }
 
 function SignOut(){
   return auth.currentUser && (
