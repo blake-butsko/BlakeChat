@@ -28,13 +28,16 @@ function App() {
   const [user] = useAuthState(auth);
 
   return (
-    <div>
+    <div className="App">
       <header>
+        <h1>⚛️🔥💬</h1>
+        <SignOut />
       </header>
 
       <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
+
     </div>
   );
 }
@@ -46,10 +49,12 @@ function SignIn(){
   }
 
   return (
-    <div>
-      <h1>Blake's Chat</h1>
-      <button onClick={signInWithGoogle}>Sign in with Google</button>
-    </div>
+    <>
+      <div>
+        <h1>Blake's Chat</h1>
+        <button onClick={signInWithGoogle}>Sign in with Google</button>
+      </div>
+    </>
   )
 }
 
@@ -99,7 +104,7 @@ function ChatRoom() {
       {/* How to send a message */}
       <form onSubmit={sendMessage}>
         <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
-        <button type="submit">Send⬆️</button>
+        <button type="submit" disabled={!formValue}>Send⬆️</button>
       </form>
 
     </>
@@ -112,10 +117,12 @@ function ChatMessage(props) {
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received'; // checks if the message was sent by the user or not (to style differently)
 
   return (
-    <div className={`message ${messageClass}`}>
-      <img src={photoURL} alt="profile pic"/>
-      <p>{text}</p> 
-    </div>
+    <>
+      <div className={`message ${messageClass}`}>
+        <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="profile pic"/>
+        <p>{text}</p> 
+      </div>
+    </>
   )
 }
 
