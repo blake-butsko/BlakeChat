@@ -1,3 +1,6 @@
+![orange_cat](https://github.com/user-attachments/assets/9fce9910-8b9e-4a1c-9cf1-545cfb37f71c)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
